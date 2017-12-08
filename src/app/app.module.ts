@@ -17,6 +17,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostService } from 'app/services/post.service';
 import { AppErrorHandler } from 'app/common/errors/app-error-handler';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { GithubService } from 'app/services/github.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
   ],
   providers: [
     PostService,
+    GithubService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
