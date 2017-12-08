@@ -1,0 +1,31 @@
+<div class="course-form">
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="name">Course Name</label>
+      <input required minlength="6" ngModel name="name" #name="ngModel" type="text" class="form-control" id="name">
+      <div *ngIf="name.touched && !name.valid" class="alert alert-danger">
+        <div *ngIf="name.errors.required"> Name is required.</div>
+        <div *ngIf="name.errors.minlength">First Name must have at least {{name.errors.minlength.requiredLength}} characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select required ngModel #category="ngModel" name="category" id="category" class="form-control">
+          <option value=""></option>        
+        <option *ngFor="let c of categories" [value]="c.id">{{c.title}}</option>
+      </select>
+      <div *ngIf="category.touched && !category.valid" class="alert alert-danger">
+          <div *ngIf="category.errors.required"> Category is required.</div>
+      </div>
+    </div>
+    <div class="checkbox">
+      <label for="moneyBack">
+        <input ngModel #moneyBack="ngModel" name="moneyBack" id="moneyBack" type="checkbox"> Money Back
+      </label>
+    </div>
+    <p>{{f.value | json}}</p>
+    <!-- <p *ngIf="name?.errors.required">R: {{name?.errors.required | json}}</p>
+    <p *ngIf="name?.errors.minlength">M: {{name?.errors.minlength.requiredLength}}</p> -->
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+  </form>
+</div>

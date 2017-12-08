@@ -1,0 +1,16 @@
+<div class="zippy">
+  <div class="zippy-heading" 
+  [ngClass]="{'expandable':isExpandable}" 
+  (click)="toggle()">
+    {{title}}
+    <span class="glyphicon"
+      [ngClass]="{
+        'glyphicon-chevron-up':isExpandable,
+        'glyphicon-chevron-down':!isExpandable
+      }"
+    ></span>
+  </div>
+  <div *ngIf="isExpandable" class="zippy-body">
+    <ng-content></ng-content>
+  </div>
+</div>

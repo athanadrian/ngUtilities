@@ -1,0 +1,22 @@
+<div class="new-course">
+  <form>
+    <input 
+      type="text" 
+      (keyup.enter)="addTopic(topic)" 
+      #topic 
+      class="form-control">
+  </form>
+
+  <ul class="list-group">
+    <li 
+      *ngFor="let topic of topics.controls"
+      class="list-group-item">
+      {{topic.value}}
+      <button type="button" 
+        class="btn btn-danger btn-xs pull-right"
+        (click)="remove(topic)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </li>
+  </ul>
+</div>
