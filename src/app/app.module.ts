@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule , ErrorHandler} from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './pipes/title-case.pipe';
@@ -18,6 +20,9 @@ import { PostService } from 'app/services/post.service';
 import { AppErrorHandler } from 'app/common/errors/app-error-handler';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { GithubService } from 'app/services/github.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +38,39 @@ import { GithubService } from 'app/services/github.service';
     NewCourseComponent,
     ChangePasswordComponent,
     PostsComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    NavbarComponent,
+    HomeComponent,
+    GithubProfileComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:id/:username',
+        component: GithubProfileComponent
+      },
+      {
+        path: 'followers',
+        component: GithubFollowersComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [
     PostService,
