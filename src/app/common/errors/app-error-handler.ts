@@ -1,4 +1,4 @@
-import { ErrorHandler } from "@angular/core/src/error_handler";
+import { ErrorHandler } from '@angular/core/src/error_handler';
 
 
 export class AppErrorHandler implements ErrorHandler {
@@ -6,4 +6,4 @@ export class AppErrorHandler implements ErrorHandler {
         alert('An unexpected error occured!');
         console.log(error);
     }
-} 
+}

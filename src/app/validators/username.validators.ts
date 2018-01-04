@@ -13,9 +13,9 @@ export class UsernameValidators {
             setTimeout(() => {
                 if (control.value === 'atana') {
                     resolve({ shouldBeUnique: true })
-                }
-                else
+                } else {
                     resolve(null);
+                }
             }, 2000);
         });
     }

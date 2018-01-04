@@ -42,8 +42,9 @@ export class BaseService {
         if (error.status === 400) {
             Observable.throw(new BadRequestError(error.json()));
         }
-        if (error.status === 404)
+        if (error.status === 404) {
             return Observable.throw(new NotFoundError(error.json()));
+        }
 
         return Observable.throw(new AppError(error.json()));
     }

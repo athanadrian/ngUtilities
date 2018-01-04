@@ -10,7 +10,7 @@ import { UsernameValidators } from '../validators/username.validators';
 })
 export class SignupFormComponent {
   form = new FormGroup({
-    account :new FormGroup({
+    account : new FormGroup({
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(3),

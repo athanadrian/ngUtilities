@@ -14,7 +14,7 @@ export class GithubProfileComponent implements OnInit {
 
     this.route.paramMap
       .subscribe(params => {
-        let id = params.getAll(`username`);
+        const id = params.getAll(`username`);
         console.log(id );
       });
 

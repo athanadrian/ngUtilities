@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
   }
 
   createPost(input: HTMLInputElement) {
-    let post = { title: input.value };
+    const post = { title: input.value };
     this.posts.splice(0, 0, post);
 
     input.value = '';
@@ -36,9 +36,10 @@ export class PostsComponent implements OnInit {
         this.posts.splice(0, 1);
 
         if (error instanceof BadRequestError) {
-          //this.form.setErrors(error.originalError);
-        }
-        else throw error;
+          // this.form.setErrors(error.originalError);
+        } else {
+          throw error
+        };
       });
   }
 
@@ -50,7 +51,7 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
-    let index = this.posts.indexOf(post);
+    const index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
 
     this.postService.delete(345)
@@ -61,8 +62,7 @@ export class PostsComponent implements OnInit {
 
         if (error instanceof NotFoundError) {
           alert('This post is already deleted.')
-        }
-        else throw error;
+        } else { throw error };
       });
   }
 }

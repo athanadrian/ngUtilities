@@ -13,7 +13,7 @@ export class ContactFormComponent {
     { id: 3, title: 'cat3' }
   ]
 
-  submit(x){
+  submit(x) {
     console.log('form :', x);
   }
 }

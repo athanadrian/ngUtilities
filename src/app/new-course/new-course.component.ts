@@ -15,11 +15,11 @@ export class NewCourseComponent {
 
   addTopic(topic: HTMLInputElement) {
     this.topics.push(new FormControl(topic.value));
-    topic.value='';
+    topic.value = '';
   }
 
-  remove(topic: FormControl){
-    let topicToRemove = this.topics.controls.indexOf(topic);
+  remove(topic: FormControl) {
+    const topicToRemove = this.topics.controls.indexOf(topic);
     this.topics.removeAt(topicToRemove);
   }
 
