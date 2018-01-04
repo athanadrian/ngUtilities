@@ -23,6 +23,7 @@ import { GithubService } from 'app/services/github.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     HomeComponent,
     GithubProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'archive/:year/:month',
+        component: ArchiveComponent
       },
       {
         path: 'followers/:id/:username',
