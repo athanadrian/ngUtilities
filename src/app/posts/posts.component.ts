@@ -54,7 +54,7 @@ export class PostsComponent implements OnInit {
     const index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
 
-    this.postService.delete(345)
+    this.postService.delete(index)
       .subscribe(
       null,
       (error: AppError) => {

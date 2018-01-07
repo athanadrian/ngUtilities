@@ -57,6 +57,10 @@ import { ArchiveComponent } from './archive/archive.component';
         component: HomeComponent
       },
       {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
         path: 'archive/:year/:month',
         component: ArchiveComponent
       },
@@ -71,6 +75,14 @@ import { ArchiveComponent } from './archive/archive.component';
       {
         path: 'posts',
         component: PostsComponent
+      },
+      {
+        path: 'password-change',
+        component: ChangePasswordComponent
+      },
+      {
+        path: 'signup',
+        component: SignupFormComponent
       },
       {
         path: '**',

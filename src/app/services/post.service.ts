@@ -6,6 +6,6 @@ import { BaseService } from 'app/services/base.service';
 export class PostService extends BaseService {
 
   constructor(http: Http) {
-    super('http://jsonplaceholder.typicode.com/posts', http);
+    super('https://jsonplaceholder.typicode.com/posts', http);
   }
 }
