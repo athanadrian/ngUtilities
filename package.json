@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "postinstall": "ng build --prod",
     "deploy:firebase": "ng build --prod && firebase deploy",
     "deploy:gh": "ng build --prod --base-href='https://athanadrian.github.io/ngUtilities/' && sudo ngh"
   },
