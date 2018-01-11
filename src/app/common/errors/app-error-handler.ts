@@ -2,8 +2,8 @@ import { ErrorHandler } from '@angular/core/src/error_handler';
 
 
 export class AppErrorHandler implements ErrorHandler {
-    handleError(error) {
+    handleError(err) {
         alert('An unexpected error occured!');
-        console.log(error);
+        console.log(err);
     }
 }
