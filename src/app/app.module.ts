@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
@@ -48,6 +49,7 @@ import { ArchiveComponent } from './archive/archive.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -59,6 +61,10 @@ import { ArchiveComponent } from './archive/archive.component';
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'animations',
+        component: ZippyComponent
       },
       {
         path: 'archive/:year/:month',

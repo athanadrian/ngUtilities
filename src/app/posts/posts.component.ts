@@ -3,11 +3,42 @@ import { PostService } from 'app/services/post.service';
 import { AppError } from 'app/common/errors/app-error';
 import { NotFoundError } from 'app/common/errors/not-found-error';
 import { BadRequestError } from 'app/common/errors/bad-request-error';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.css'],
+  animations: [
+    trigger('fade', [
+
+      state('void', style({ opacity: 0 })),
+
+      //or with two transitions
+      // transition('void => *', [
+      //   animate(2000)
+      // ]),
+
+      // transition('* => void', [
+      //   animate(1000)
+      // ])
+
+      //or
+      // transition('void => *, * => void', [
+      //   animate(2000)
+      // ])
+
+      //or bidirectional
+      // transition('void <=> *', [
+      //   animate(2000)
+      // ])
+
+      //or with alias
+      transition(':enter, :leave', [
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class PostsComponent implements OnInit {
 
