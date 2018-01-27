@@ -3,41 +3,39 @@ import { PostService } from 'app/services/post.service';
 import { AppError } from 'app/common/errors/app-error';
 import { NotFoundError } from 'app/common/errors/not-found-error';
 import { BadRequestError } from 'app/common/errors/bad-request-error';
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import { trigger, state, transition, style, animate, keyframes, animation, useAnimation, query, animateChild, stagger } from '@angular/animations';
+import { bounchOutLeftAnimation, fadeInAnimation } from 'app/animations/posts-animation';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css'],
   animations: [
-    trigger('fade', [
-
-      state('void', style({ opacity: 0 })),
-
-      //or with two transitions
-      // transition('void => *', [
-      //   animate(2000)
-      // ]),
-
-      // transition('* => void', [
-      //   animate(1000)
-      // ])
-
-      //or
-      // transition('void => *, * => void', [
-      //   animate(2000)
-      // ])
-
-      //or bidirectional
-      // transition('void <=> *', [
-      //   animate(2000)
-      // ])
-
-      //or with alias
-      transition(':enter, :leave', [
-        animate(2000)
+    trigger('posts-animation', [
+      transition(':enter', [
+        query('h1', [
+          style({ transform: 'translateY(-20px)' }),
+          animate(1000)
+        ]),
+        query('@post-animation',
+          stagger(200, animateChild()), { optional: true })
       ])
-    ])
+    ]),
+    trigger('post-animation', [
+      transition(':enter', [
+        useAnimation(fadeInAnimation, {
+          params: {
+            duration: '2000ms',
+            easing: 'ease-out'
+          }
+        })
+      ]),
+      transition(':leave', [
+        style({ backgroundColor: 'red' }),
+        animate(1000),
+        useAnimation(bounchOutLeftAnimation)
+      ])
+    ]),
   ]
 })
 export class PostsComponent implements OnInit {
@@ -95,5 +93,13 @@ export class PostsComponent implements OnInit {
           alert('This post is already deleted.')
         } else { throw error };
       });
+  }
+
+  animationStart($event) {
+    console.log($event);
+  }
+
+  animationDone($event) {
+    console.log($event);
   }
 }

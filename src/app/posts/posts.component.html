@@ -1,7 +1,10 @@
+<div @posts-animation>
+  <h1>POSTS</h1>
 
 <input type="text" class="form-control" (keyup.enter)="createPost(title)" #title>
 <ul class="list-group">
-  <li *ngFor="let post of posts" class="list-group-item" @fade>
+  <li *ngFor="let post of posts" class="list-group-item" 
+    @post-animation>
     {{post.title}}
     <button type="button" 
     class="btn btn-success btn-xs pull-right"
@@ -15,3 +18,4 @@
     </button>
   </li>
 </ul>
+</div>
