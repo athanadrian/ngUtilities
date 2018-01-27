@@ -63,10 +63,6 @@ import { ArchiveComponent } from './archive/archive.component';
         component: HomeComponent
       },
       {
-        path: 'animations',
-        component: ZippyComponent
-      },
-      {
         path: 'archive/:year/:month',
         component: ArchiveComponent
       },
@@ -81,6 +77,10 @@ import { ArchiveComponent } from './archive/archive.component';
       {
         path: 'posts',
         component: PostsComponent
+      },
+      {
+        path: 'animations',
+        component: ZippyComponent
       },
       {
         path: 'password-change',

@@ -1,18 +1,22 @@
 import { Component, Input } from '@angular/core';
+import { expandCollapse } from 'app/animations/zippy-animations';
 
 @Component({
   selector: 'app-zippy',
   templateUrl: './zippy.component.html',
-  styleUrls: ['./zippy.component.css']
+  styleUrls: ['./zippy.component.css'],
+  animations: [
+    expandCollapse
+  ]
 })
 export class ZippyComponent {
 
-  @Input('title') title: string;
+  @Input('title') title: string = "Shipping Address";
 
-  isExpandable = false;
+  isExpanded = false;
 
   toggle() {
-    this.isExpandable = !this.isExpandable;
+    this.isExpanded = !this.isExpanded;
   }
 
 }
