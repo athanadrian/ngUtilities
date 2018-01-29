@@ -25,6 +25,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { MaterialComponent } from './material/material.component';
+import { MaterialModule } from 'app/material/material.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ArchiveComponent } from './archive/archive.component';
     HomeComponent,
     GithubProfileComponent,
     NotFoundComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { ArchiveComponent } from './archive/archive.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    MaterialModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -81,6 +85,10 @@ import { ArchiveComponent } from './archive/archive.component';
       {
         path: 'animations',
         component: ZippyComponent
+      },
+      {
+        path: 'material',
+        component: MaterialComponent
       },
       {
         path: 'password-change',

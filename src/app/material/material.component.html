@@ -1,0 +1,31 @@
+<div id="checkbox" class="div-component">
+  <mat-checkbox
+  #showDiv
+  [value]=""
+  [checked]="isChecked"
+  (onChange)="onChange($event)"
+  >Show div</mat-checkbox>
+
+  <div *ngIf="showDiv.checked" style="background-color:bisque;">Div with some details..........</div>
+</div>
+
+<div id="radio-button" class="div-component">
+  <mat-radio-group #showRbDiv>
+    <mat-radio-button #showRbDiv value="1" [checked]="true">DIV 1</mat-radio-button>
+    <mat-radio-button value="2">DIV 2</mat-radio-button>
+  </mat-radio-group>
+  <p>{{showRbDiv.checked}}</p>
+  <div *ngIf="showRbDiv.checked" style="background-color:bisque;">Div1 with some details..........</div>
+  <div *ngIf="!showRbDiv.checked" style="background-color:bisque;">Div2 with some details..........</div>
+</div>
+
+<div id="select" class="div-component">
+  <mat-form-field>
+    <mat-select placeholder="Favorite food" [(ngModel)]="theFood">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p>{{ theFood }}</p>
+</div>
